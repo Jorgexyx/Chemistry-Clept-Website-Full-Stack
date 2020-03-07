@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import HomePage from './pages/Homepage'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Layout>
         <Switch>
           <Route path="/">
-            ss
+            <HomePage />
           </Route>
 
           <Route path="/:section">

@@ -1,14 +1,20 @@
 import React, { Fragment } from "react"
-import Container from '@material-ui/core/Container';
+import {Grid, Container } from '@material-ui/core';
 import Header from './Header'
 import { CssBaseline } from '@material-ui/core'
+import ApolloClient from 'apollo-boost';
+const client = new ApolloClient({
+  uri: ,
+});
 const Layout = ({children}) => {
   return(
     <Fragment>
       <CssBaseline />
       <Header />
       <Container maxWidth="xl">
-        {children}
+        <Grid container>
+          {children}
+        </Grid>
       </Container>
     </Fragment>
   )
