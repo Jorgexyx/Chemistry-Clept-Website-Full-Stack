@@ -1,11 +1,10 @@
 import gql from 'graphql-tag';
 
 const GET_SECTION_QUESTIONS = gql`
-  query GetSectionQuestions($name: String!) {
+  query GetSectionQuestions($name: String!) 
   {
     allMultipleChoices(where: { section: { name_contains: $name} }) {
       id,
-      name,
       question,
       optionA,
       optionB,
@@ -17,6 +16,6 @@ const GET_SECTION_QUESTIONS = gql`
   }
 `
 
-export = {
+export {
   GET_SECTION_QUESTIONS
 }

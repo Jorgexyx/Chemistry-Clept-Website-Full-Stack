@@ -9,7 +9,7 @@ const HomePage = () => {
   const { loading, error, data: sectionData } = useQuery(GET_SECTIONS)
 
   useEffect(() => {
-    console.error("Error fetching the data: ", error)
+    error && console.error("Error fetching the data: ", error)
   }, [error])
 
   return(

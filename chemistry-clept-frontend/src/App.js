@@ -14,7 +14,7 @@ function App() {
             <HomePage />
           </Route>
 
-          <Route exact path="/section/:id">
+          <Route exact path="/section/:name">
             <SectionQuestions />
           </Route>
 
