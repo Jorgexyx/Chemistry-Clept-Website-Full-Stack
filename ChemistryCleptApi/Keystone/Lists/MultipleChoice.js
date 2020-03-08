@@ -3,7 +3,6 @@ const textType = { type: Text }
 
 module.exports = {
   fields: {
-    name: textType,
     question: textType,
     correctAnswerLabel: textType,
     optionA: textType,

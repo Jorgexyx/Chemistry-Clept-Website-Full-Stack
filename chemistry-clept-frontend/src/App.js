@@ -14,11 +14,11 @@ function App() {
     <Router>
       <Layout>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <HomePage />
           </Route>
 
-          <Route path="/:section">
+          <Route exact path="/section/:id">
             s
           </Route>
 
