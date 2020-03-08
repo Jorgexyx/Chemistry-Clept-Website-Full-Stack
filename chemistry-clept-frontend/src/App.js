@@ -1,13 +1,9 @@
 import React from 'react';
 import "./scss/loader.css"
 import Layout from './components/Layout'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from './pages/Homepage'
+import SectionQuestions from './pages/SectionQuestions'
 
 function App() {
   return (
@@ -19,7 +15,7 @@ function App() {
           </Route>
 
           <Route exact path="/section/:id">
-            s
+            <SectionQuestions />
           </Route>
 
         </Switch>
