@@ -7,4 +7,6 @@ TODO list
 - [x] Setup API
 - [ ] Setup Frontend
 - [ ] Publish
+- [ ] Add data to live api
+
 
