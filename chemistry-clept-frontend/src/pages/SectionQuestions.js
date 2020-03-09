@@ -13,6 +13,7 @@ const SectionQuestions = () => {
       name: name.includes("_") ? name.split("_")[0] : name
     }
   })
+  
 
   useEffect(() => {
     error && console.error("Error fetching the data: ", error)
@@ -22,6 +23,9 @@ const SectionQuestions = () => {
     <Grid container spacing={3} style={{"paddingTop":"20px"}}>
       {error && <Typography style={{"color":"red"}}>There was an error fetching the data</Typography>}
       {loading && <LinearProgress variant="query" style={{"display": "contents"}}/> }
+      {questionsData && questionsData.allMultipleChoices.map( data =>
+        <QuestionCard {...data} key={data.id} />
+      )}
     </Grid>
   )
 }
