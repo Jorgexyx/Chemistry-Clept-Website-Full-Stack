@@ -13,11 +13,40 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
+const correctStyle = {
+  backgroundColor: "green",
+  color: "white"
+}
+const wrongStyle = {
+  backgroundColor: "red",
+  color: "white"
+}
+
 const QuestionCard = ({id, question, optionA, optionB, optionC, optionD, optionE, correctAnswerLabel}) => {
   const [answer, setAnswer ] = useState(0)
+  const [displayAnswer, setDisplayAnswer] = useState(false)
+  const [displayStyle, setDisplayStyle] = useState(false)
+  const [style, setStyle] = useState({})
+
+  const options  = [ 
+    {value: "a", label: optionA},
+    {value: "b", label: optionB},
+    {value: "c", label: optionC},
+    {value: "d", label: optionD},
+    {value: "e", label: optionE},
+  ]
+
+  const onSelectAnswer = (e) => {
+    setAnswer(e.target.value)
+    setStyle({})
+  }
 
   const onCheckAnswer = () => {
-
+    if(correctAnswerLabel === answer) {
+      setStyle(correctStyle)
+    } else {
+      setStyle(wrongStyle)
+    }
   }
 
   return(
@@ -29,10 +58,17 @@ const QuestionCard = ({id, question, optionA, optionB, optionC, optionD, optionE
           </Typography>
           <FormControl component="fieldset" >
             <FormLabel component="legend">Gender</FormLabel>
-            <RadioGroup aria-label="question" name={id} value={answer} onChange={(e) => setAnswer(e.target.value)}>
-              <FormControlLabel value="a" control={<Radio />} label={optionA} />
-              <FormControlLabel value="b" control={<Radio />} label= {optionB}/>
-              <FormControlLabel value="c" control={<Radio />} label={optionC} />
+            <RadioGroup aria-label="question" name={id} value={answer} onChange={onSelectAnswer}>
+              {options.map( props => 
+              <FormControlLabel 
+                control={<Radio />}
+                style={ 
+                  props.value === answer ? style : 
+                  displayAnswer && props.value === correctAnswerLabel ? correctStyle : {}
+                } 
+                {...props} 
+              />
+              )}
             </RadioGroup>
           </FormControl>
         </CardContent>
@@ -40,8 +76,8 @@ const QuestionCard = ({id, question, optionA, optionB, optionC, optionD, optionE
           <Button size="small" color="primary" onClick={onCheckAnswer}>
           Submit
         </Button>
-        <Button size="small" color="primary" onClick={onCheckAnswer}>
-          Display Correct Answer
+        <Button size="small" color="primary" onClick={() => setDisplayAnswer(!displayAnswer)}>
+          {displayAnswer ? "Hide" : "Display"} Correct Answer
         </Button>
       </CardActions>
       </Card>
