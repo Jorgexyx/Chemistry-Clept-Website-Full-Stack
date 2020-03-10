@@ -5,7 +5,8 @@ Website used for studying for chemistry clept exam by proviing multiple choices.
 
 TODO list
 - [x] Setup API
-- [ ] Setup Frontend
+- [x] Setup Frontend
+- [ ] Add image support for questions and mc
 - [ ] Publish
 - [ ] Add data to live api
 
